@@ -128,6 +128,9 @@ if __name__ == '__main__':
           np.trapz(n_64_jitter, x=time) * jitter_freq / 20000)
     # integrates rate vs time to get number of photons scattered in one period. I multiply it by jitter_freq/20000 to
     # get the number of photons scattered in the 1 cm beam (the atoms are moving at 20000 cm/s)
+
+    # this is meant to be a demonstration of how I find the average rate for each transition. later in the code, I
+    # calculate this integral for every transition
     plt.show()
 
     n_150_jitter = rate_jitter(main_freq - 150 * 10 ** 6 - 800 * 10 ** 6)
@@ -145,8 +148,9 @@ rates = copy.deepcopy(state_data.allowed_transitions)  # number of photons absor
 
 for g_state, e_dict in delta_freq.items():
     for e_state, t_freq in e_dict.items():
-        # integrates rate vs time for one period, times the number of periods of laser jitter in 1 cm
-        # gives the total number of photons scattered by a transition in the 1 cm beam
+        # for every transition, integrates rate vs time for one period
+        # multiplying it by the number of periods of laser jitter in 1 cm gives the total number of photons scattered
+        # by a transition in the 1 cm beam
         num = np.trapz(rate_jitter(main_freq + t_freq * 10 ** 6), x=time) * jitter_freq / 20000
         if float(g_state[3:5]) < float(e_state[4:6]):  # for +sigma polarized light
             num_photons[g_state][e_state] = num * polar_frac * abs_str[g_state][e_state]
