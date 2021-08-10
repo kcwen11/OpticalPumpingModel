@@ -3,7 +3,6 @@ Models the optical pumping of lithium 7 atoms by a polarized laser modulated by 
 Created by Kevin Wen for Dr. Heinzen's research lab, Summer 2021
 
 
-
 Files:
 
 beam_spectrum.py - defines the specific laser frequencies we are using, and calculates the transition frequencies for Li 7 we are interested in. Taking the laser jitter into account, it calculates the average number of photons scattered per second for each transition. When ran, graphs the laser spectrum with the transition frequencies, and plots a few examples of scattering rate vs time for different transitions.
