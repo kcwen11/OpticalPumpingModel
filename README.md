@@ -1,5 +1,5 @@
 # OpticalPumpingModel
-Models the optical pumping of lithium 7 atoms by a polarized laser modulated by an AOM and two EOMs.
+Models the optical pumping of lithium 7 atoms by a polarized laser modulated with an AOM and two EOMs.
 Created by Kevin Wen for Dr. Heinzen's research lab, Summer 2021
 
 
